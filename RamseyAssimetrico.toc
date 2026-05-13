@@ -1,0 +1,18 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {section}{\tocsection {}{1}{Preliminares e Notação}}{1}{section.1}%
+\contentsline {section}{\tocsection {}{2}{Propriedade de Ramsey em Grafos Aleatórios}}{2}{section.2}%
+\contentsline {section}{\tocsection {}{3}{Propriedade Anti-Ramsey em Grafos Aleatórios}}{3}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{1-Enunciado: limite superior para o limiar}}{3}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{0-Enunciado: limite inferior — o \emph {framework} de Nenadov et al.}}{3}{subsection.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Resultados para classes específicas de grafos}}{4}{subsection.3.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{}{Ciclos}}{4}{section*.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{}{Grafos completos}}{4}{section*.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{}{Caso geral: 2-densidade alta}}{4}{section*.4}%
+\contentsline {subsection}{\tocsubsection {}{3.4}{A tabela de limiares conhecidos}}{4}{subsection.3.4}%
+\contentsline {subsection}{\tocsubsection {}{3.5}{Questão em aberto: grafos de cintura grande}}{5}{subsection.3.5}%
+\contentsline {section}{\tocsection {}{4}{Propriedade Ramsey Restrita (Constrained Ramsey)}}{5}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Resultados principais de Behague et al.}}{6}{subsection.4.1}%
+\contentsline {section}{\tocsection {}{5}{Propriedade Ramsey Canônica Assimétrica}}{6}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Cenário assimétrico}}{7}{subsection.5.1}%
+\contentsline {section}{\tocsection {}{6}{O Caso Assimétrico $(K_3, K_4, K_5)$}}{7}{section.6}%
+\contentsline {section}{\tocsection {}{}{Refer\^encias}}{13}{section*.5}%
