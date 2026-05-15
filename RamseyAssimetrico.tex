@@ -907,23 +907,49 @@ A Afirmação~\ref{afirm:chipp} conclui a prova do Lema~\ref{lem:0-statement-K5}
 % ------------------------------------------------------------------
 
 \begin{proof}[Prova da Afirmação~\ref{afirm:vertex-exp} (Expansões de vértice)]
-Examinamos cada tipo de expansão que adiciona vértices, mostrando que a coloração $\chi'$
-pode ser estendida preservando a propriedade de equilíbrio.
+A prova é por indução no número de passos de expansão na construção do bloco $B$.
+Mantemos o seguinte invariante: após cada passo, toda cópia de $K_5$ presente no grafo
+atual admite uma decomposição $E(K_5) = E(C_5^{\text{vm}}) \cup E(C_5^{\text{az}})$
+(com todo vértice de grau $2$ em cada $C_5$), e todo triângulo presente tem exatamente
+$2$ arestas de uma cor e $1$ da outra (distribuição $2$-$1$).
 
-\medskip\noindent\textbf{Caso $R_\ell$.}
-A nova cópia de $K_5$ compartilha uma aresta $e$ já colorida.
-Construímos os dois $C_5$ do novo $K_5$ de modo que $e$ pertença ao $C_5$ da sua cor;
-cada vértice fica com grau $2$ em cada $C_5$, garantindo ambas as cores.
+\medskip
 
-\medskip\noindent\textbf{Caso $T_\ell$.}
-Um $P_2$ monocromático $a$--$b$--$c$ (que sempre existe por paridade no triângulo)
-é extendido ao $C_5$ vermelho $a$--$b$--$c$--$u$--$v$--$a$;
-as cinco arestas restantes formam o $C_5$ azul.
-Todo vértice fica com grau $2$ em cada $C_5$.
+O caso base $H_0 \cong K_5$ satisfaz o invariante pela construção explícita da coloração
+auxiliar $\chi'$ descrita anteriormente.
 
-\medskip\noindent\textbf{Caso $Q_\ell$.}
-O $P_3$ vermelho $a$--$b$--$c$--$d$ no $K_4$ é extendido ao $C_5$ vermelho
-$a$--$b$--$c$--$d$--$v$--$a$; as cinco arestas restantes formam o $C_5$ azul.
+\medskip\noindent\textbf{Passo indutivo --- Caso $R_\ell$.}
+Uma nova cópia de $K_5$ é colada à estrutura existente por uma única aresta $e$ já colorida
+(digamos, $e$ é vermelha). As $9$ novas arestas ainda não possuem cor.
+Como $K_5$ se decompõe em dois $C_5$, e qualquer aresta de $K_5$ pode pertencer ao $C_5$
+de qualquer uma das duas cores, basta escolher a decomposição do novo $K_5$ de modo que
+$e$ pertença ao $C_5$ vermelho. Com isso, cada vértice do novo $K_5$ fica com grau $2$
+em cada $C_5$, e o invariante é preservado. Além disso, como a aresta compartilhada $e$
+está corretamente inserida no $C_5$ da sua cor, nenhum triângulo preexistente é afetado.
+Note que esta extensão é sempre possível, independentemente da cor de $e$, e portanto
+uma sequência arbitrariamente longa de passos $R_\ell$ preserva o invariante.
+
+\medskip\noindent\textbf{Passo indutivo --- Caso $T_\ell$.}
+Dois novos vértices $u, v$ (com a aresta $uv$) são ligados a um triângulo $\{a,b,c\}$
+preexistente, formando um novo $K_5$ sobre $\{a,b,c,u,v\}$.
+Pelo invariante indutivo, o triângulo $\{a,b,c\}$ possui distribuição $2$-$1$;
+logo existe um $P_2$ monocromático, digamos o caminho vermelho $a$--$b$--$c$.
+Definimos a coloração do novo $K_5$ estendendo esse $P_2$ ao $C_5$ vermelho
+$a\text{-}b\text{-}c\text{-}u\text{-}v\text{-}a$; as cinco arestas restantes
+$\{au, bu, bv, cv, uv\} \setminus \{av\}$
+formam o $C_5$ azul $a\text{-}c\text{-}v\text{-}b\text{-}u\text{-}a$.
+Verifica-se diretamente que todo vértice tem grau $2$ em cada $C_5$, preservando o invariante.
+
+\medskip\noindent\textbf{Passo indutivo --- Caso $Q_\ell$.}
+Um novo vértice $v$ é ligado a todos os vértices de um $K_4$ existente $\{a,b,c,d\}$,
+formando um novo $K_5$ sobre $\{a,b,c,d,v\}$.
+Pelo invariante, toda cópia de $K_5$ que contém o $K_4$ tem distribuição $2$-$1$ em seus
+triângulos; em particular, o $K_4$ possui um $P_3$ monocromático, digamos o caminho
+vermelho $a$--$b$--$c$--$d$.
+Definimos a coloração do novo $K_5$ estendendo esse $P_3$ ao $C_5$ vermelho
+$a\text{-}b\text{-}c\text{-}d\text{-}v\text{-}a$; as cinco arestas restantes formam
+o $C_5$ azul $a\text{-}c\text{-}v\text{-}b\text{-}d\text{-}a$.
+Todo vértice fica com grau $2$ em cada $C_5$, e o invariante é preservado.
 \end{proof}
 
 \begin{proof}[Prova da Afirmação~\ref{afirm:ulimit} (Limitação de $U_\ell$)]
