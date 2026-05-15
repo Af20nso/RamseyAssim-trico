@@ -11,3 +11,5 @@
 *.fls
 *.synctex.gz
 compile_log.txt
+*.bak
+*.bbl-SAVE-ERROR
