@@ -519,56 +519,56 @@ A chave do framework de Nenadov et al.\ é que, quando $p \ll n^{-1/\maxdens(H)}
   \]
 \end{theorem}
 
-\begin{proof}[Esbo\c{c}o da Prova]
+\begin{proof}[Esboço da Prova]
   O $1$-enunciado segue do Teorema de Kam\v{c}ev--Schacht~\cite{kamcev2023canonical}.
 
-  Para o $0$-enunciado, descrevemos o algoritmo \textsc{Colora\c{c}\~{a}oCan} que, dado $G$ com $\maxdens(G) \le 3$, constr\'{o}i explicitamente uma colora\c{c}\~{a}o das arestas de $G$ sem $K_3$ monocrom\'{a}tico, $K_4$ arco-\'{i}ris ou $K_5$ lexicogr\'{a}fico.
+  Para o $0$-enunciado, descrevemos o algoritmo \textsc{ColoraçãoCan} que, dado $G$ com $\maxdens(G) \le 3$, constrói explicitamente uma coloração das arestas de $G$ sem $K_3$ monocromático, $K_4$ arco-íris ou $K_5$ lexicográfico.
 
-  \textbf{Passo 1 --- Colora\c{c}\~{a}o Lexicogr\'{a}fica Inicial.}
-  Fixamos uma ordena\c{c}\~{a}o total $\sigma: V(G) \to [n]$ e uma atribui\c{c}\~{a}o $\varphi: V(G) \to \mathbb{N}$.
-  Definimos a colora\c{c}\~{a}o min-lex $\chi: E(G) \to \mathbb{N}$ por
+  \textbf{Passo 1 --- Coloração Lexicográfica Inicial.}
+  Fixamos uma ordenação total $\sigma: V(G) \to [n]$ e uma atribuição $\varphi: V(G) \to \mathbb{N}$.
+  Definimos a coloração min-lex $\chi: E(G) \to \mathbb{N}$ por
   \[ \chi(uv) \;:=\; \varphi\!\bigl(\min_\sigma\{u,v\}\bigr), \]
-  ou seja, a cor de cada aresta \'{e} determinada pelo v\'{e}rtice de menor \'{i}ndice segundo $\sigma$.
-  Por constru\c{c}\~{a}o, $\chi$ \'{e} uma colora\c{c}\~{a}o min-lex e satisfaz:
+  ou seja, a cor de cada aresta é determinada pelo vértice de menor índice segundo $\sigma$.
+  Por construção, $\chi$ é uma coloração min-lex e satisfaz:
   \begin{itemize}
-    \item n\~{a}o existe $K_3$ monocrom\'{a}tico sob $c$;
-    \item n\~{a}o existe $K_4$ arco-\'{i}ris sob $c$.
+    \item não existe $K_3$ monocromático sob $c$;
+    \item não existe $K_4$ arco-íris sob $c$.
   \end{itemize}
-  O problema \'{e} que toda c\'{o}pia de $K_5$ em $G$ \'{e} lexicogr\'{a}fica (min-lex) sob $\chi$ --- exatamente a estrutura proibida que precisamos eliminar.
+  O problema é que toda cópia de $K_5$ em $G$ é lexicográfica (min-lex) sob $\chi$ --- exatamente a estrutura proibida que precisamos eliminar.
 
-  \textbf{Passo 2 --- Remo\c{c}\~{a}o de Arestas Livres.}
-  Removemos de $G$ todas as arestas que n\~{a}o pertencem a nenhuma c\'{o}pia de $K_5$.
-  Seja $G' \subseteq G$ o grafo resultante. As arestas removidas mant\^{e}m a colora\c{c}\~{a}o $\chi$ do Passo~1 e n\~{a}o causam problemas.
+  \textbf{Passo 2 --- Remoção de Arestas Livres.}
+  Removemos de $G$ todas as arestas que não pertencem a nenhuma cópia de $K_5$.
+  Seja $G' \subseteq G$ o grafo resultante. As arestas removidas mantêm a coloração $\chi$ do Passo~1 e não causam problemas.
 
-  \textbf{Passo 3 --- Decomposi\c{c}\~{a}o em $K_5$-Blocos.}
-  Decompomos $G'$ em seus $K_5$-blocos (Defini\c{c}\~{a}o~\ref{def:H-bloco}).
+  \textbf{Passo 3 --- Decomposição em $K_5$-Blocos.}
+  Decompomos $G'$ em seus $K_5$-blocos (Definição~\ref{def:H-bloco}).
   Como $\maxdens(G) \le \mdens(K_5) = 3$, cada $K_5$-bloco tem tamanho $O(1)$.
 
-  \textbf{Passo 4 --- Recolora\c{c}\~{a}o dos Blocos.}
-  Para cada $K_5$-bloco $B$, substitu\'{i}mos $\chi|_{E(B)}$ por uma nova colora\c{c}\~{a}o $\chi'$ (constru\'{i}da indutivamente) que evita $K_5$ lexicogr\'{a}fico, sem introduzir $K_3$ monocrom\'{a}tico ou $K_4$ arco-\'{i}ris.
-  A exist\^{e}ncia de tal colora\c{c}\~{a}o em cada bloco \'{e} garantida pelo Lema~\ref{lem:0-statement-K5} abaixo.
+  \textbf{Passo 4 --- Recoloração dos Blocos.}
+  Para cada $K_5$-bloco $B$, substituímos $\chi|_{E(B)}$ por uma nova coloração $\chi'$ (construída indutivamente) que evita $K_5$ lexicográfico, sem introduzir $K_3$ monocromático ou $K_4$ arco-íris.
+  A existência de tal coloração em cada bloco é garantida pelo Lema~\ref{lem:0-statement-K5} abaixo.
 \end{proof}
 
 \begin{lemma}
   \label{lem:0-statement-K5}
-  Seja $B$ um $K_5$-bloco com $\maxdens(B) \le 3$. Ent\~{a}o existe uma colora\c{c}\~{a}o $c: E(B) \to \mathbb{N}$ tal que:
+  Seja $B$ um $K_5$-bloco com $\maxdens(B) \le 3$. Então existe uma coloração $c: E(B) \to \mathbb{N}$ tal que:
   \begin{enumerate}
-    \item[(i)] $c$ n\~{a}o possui $K_3$ monocrom\'{a}tico;
-    \item[(ii)] $c$ n\~{a}o possui $K_4$ arco-\'{i}ris;
-    \item[(iii)] $c$ n\~{a}o possui $K_5$ lexicogr\'{a}fico.
+    \item[(i)] $c$ não possui $K_3$ monocromático;
+    \item[(ii)] $c$ não possui $K_4$ arco-íris;
+    \item[(iii)] $c$ não possui $K_5$ lexicográfico.
   \end{enumerate}
 \end{lemma}
 
 \begin{proof}
 
-\noindent\textit{A colora\c{c}\~{a}o auxiliar de $K_5$.}
+\noindent\textit{A coloração auxiliar de $K_5$.}
 
 Seja $B$ um $K_5$-bloco com $\maxdens(B) \le 3$.
-Consideramos uma ordena\c{c}\~{a}o $\sigma$ dos v\'{e}rtices de $B$ e a colora\c{c}\~{a}o lexicogr\'{a}fica min-lex
+Consideramos uma ordenação $\sigma$ dos vértices de $B$ e a coloração lexicográfica min-lex
 $\chi(uv) := \varphi(\min_\sigma\{u,v\})$.
 
-O ponto de partida \'{e} uma \'{u}nica c\'{o}pia $H_0 \cong K_5$ com v\'{e}rtices ordenados $v_1 < v_2 < v_3 < v_4 < v_5$.
-Sob a colora\c{c}\~{a}o min-lex, as cores das arestas s\~{a}o distribu\'{i}das como segue:
+O ponto de partida é uma única cópia $H_0 \cong K_5$ com vértices ordenados $v_1 < v_2 < v_3 < v_4 < v_5$.
+Sob a coloração min-lex, as cores das arestas são distribuídas como segue:
 
 \medskip
 \medskip
@@ -599,13 +599,13 @@ Sob a colora\c{c}\~{a}o min-lex, as cores das arestas s\~{a}o distribu\'{i}das c
 \end{center}
 
 \noindent
-\'{E} f\'{a}cil verificar que toda c\'{o}pia de $K_5$ sob $\chi$ \'{e} lexicogr\'{a}fica (min-lex).
+É fácil verificar que toda cópia de $K_5$ sob $\chi$ é lexicográfica (min-lex).
 
-Definimos agora uma \textbf{colora\c{c}\~{a}o auxiliar de duas cores} $\chi': E(B) \to \{\text{claro}, \text{escuro}\}$
-(representadas como vermelho e azul nos diagramas) que servir\'{a} de base para a recolora\c{c}\~{a}o dos $K_5$-blocos.
-Sobre o $K_5$ inicial $H_0$, $\chi'$ \'{e} definida identificando os $10$ arestas de $K_5$ com as $10$ arestas de
-duas c\'{o}pias de $C_5$: o \textbf{pent\'{a}gono externo} (as arestas $v_1v_2, v_2v_3, v_3v_4, v_4v_5, v_5v_1$)
-e o \textbf{pent\'{a}gono interno} (as diagonais $v_1v_3, v_3v_5, v_5v_2, v_2v_4, v_4v_1$).
+Definimos agora uma \textbf{coloração auxiliar de duas cores} $\chi': E(B) \to \{\text{claro}, \text{escuro}\}$
+(representadas como vermelho e azul nos diagramas) que servirá de base para a recoloração dos $K_5$-blocos.
+Sobre o $K_5$ inicial $H_0$, $\chi'$ é definida identificando os $10$ arestas de $K_5$ com as $10$ arestas de
+duas cópias de $C_5$: o \textbf{pentágono externo} (as arestas $v_1v_2, v_2v_3, v_3v_4, v_4v_5, v_5v_1$)
+e o \textbf{pentágono interno} (as diagonais $v_1v_3, v_3v_5, v_5v_2, v_2v_4, v_4v_1$).
 
 \begin{center}
 \begin{tikzpicture}[scale=1.3,
@@ -623,71 +623,71 @@ e o \textbf{pent\'{a}gono interno} (as diagonais $v_1v_3, v_3v_5, v_5v_2, v_2v_4
 \end{center}
 
 \noindent
-Verifica-se diretamente que $\chi|_{H_0}$ \'{e} uma colora\c{c}\~{a}o pr\'{o}pria de $H_0$ (todo v\'{e}rtice tem grau $2$ em cada $C_5$),
-n\~{a}o possui $K_3$ monocrom\'{a}tico, n\~{a}o possui $K_4$ arco-\'{i}ris, e n\~{a}o possui $K_5$ lexicogr\'{a}fico.
+Verifica-se diretamente que $\chi|_{H_0}$ é uma coloração própria de $H_0$ (todo vértice tem grau $2$ em cada $C_5$),
+não possui $K_3$ monocromático, não possui $K_4$ arco-íris, e não possui $K_5$ lexicográfico.
 
 
 \medskip
-\noindent\textit{Fun\c{c}\~{a}o de penalidade e tipos de expans\~{a}o.}
+\noindent\textit{Função de penalidade e tipos de expansão.}
 
-Para controlar a estrutura dos $K_5$-blocos durante a constru\c{c}\~{a}o indutiva,
+Para controlar a estrutura dos $K_5$-blocos durante a construção indutiva,
 introduzimos a seguinte medida adaptada de~\cite{AntiComplete}:
 
-\begin{definition}[Fun\c{c}\~{a}o de penalidade]
+\begin{definition}[Função de penalidade]
 Dado um grafo $G$, definimos
 \[
   p(G) \;:=\; e(G) - 3\,v(G) + 5.
 \]
 \end{definition}
 
-A fun\c{c}\~{a}o $p$ \'{e} normalizada de forma que o $K_5$ inicial tenha penalidade nula:
+A função $p$ é normalizada de forma que o $K_5$ inicial tenha penalidade nula:
 \[
   p(K_5) = 10 - 3 \cdot 5 + 5 = 0.
 \]
-Al\'{e}m disso, a condi\c{c}\~{a}o de densidade $\maxdens(G) \le 3$ garante que $e(G) \le 3\,v(G)$, o que implica
-$p(G) \le 5$ para qualquer subgrafo de $B$. Essa limita\c{c}\~{a}o superior \'{e} crucial para controlar a 
+Além disso, a condição de densidade $\maxdens(G) \le 3$ garante que $e(G) \le 3\,v(G)$, o que implica
+$p(G) \le 5$ para qualquer subgrafo de $B$. Essa limitação superior é crucial para controlar a 
 complexidade estrutural do bloco.
 
-A constru\c{c}\~{a}o de um $K_5$-bloco $B$ pode ser vista como um processo indutivo. Come\c{c}amos com uma 
-c\'{o}pia base $H_0 \cong K_5$ e, a cada passo, anexamos novos v\'{e}rtices e arestas para formar novas 
-c\'{o}pias de $K_5$. Seguindo as estrat\'{e}gias desenvolvidas em~\cite{nenadov2017algorithmic} e \cite{AntiComplete},
-classificamos essas extens\~{o}es em quatro tipos estruturais (ver analogia aos casos de expans\~{a}o):
+A construção de um $K_5$-bloco $B$ pode ser vista como um processo indutivo. Começamos com uma 
+cópia base $H_0 \cong K_5$ e, a cada passo, anexamos novos vértices e arestas para formar novas 
+cópias de $K_5$. Seguindo as estratégias desenvolvidas em~\cite{nenadov2017algorithmic} e \cite{AntiComplete},
+classificamos essas extensões em quatro tipos estruturais (ver analogia aos casos de expansão):
 
 \begin{itemize}
-  \item \textbf{$R_\ell$ (Expans\~{a}o regular):} Adicionam-se $3$ novos v\'{e}rtices e $9$ novas arestas que, juntamente 
-    com uma aresta j\'{a} existente, formam um novo $K_5$. 
-    Neste caso, a varia\c{c}\~{a}o da penalidade \'{e} $\Delta p = 9 - 3(3) = 0$, ou seja, a penalidade do 
-    grafo se mant\'{e}m inalterada.
+  \item \textbf{$R_\ell$ (Expansão regular):} Adicionam-se $3$ novos vértices e $9$ novas arestas que, juntamente 
+    com uma aresta já existente, formam um novo $K_5$. 
+    Neste caso, a variação da penalidade é $\Delta p = 9 - 3(3) = 0$, ou seja, a penalidade do 
+    grafo se mantém inalterada.
 
-  \item \textbf{$T_\ell$ (Expans\~{a}o sobre tri\^{a}ngulo):} Adicionam-se $2$ novos v\'{e}rtices e $7$ novas arestas que, 
-    apoiadas em um tri\^{a}ngulo preexistente, completam um novo $K_5$. 
-    Aqui, o incremento na penalidade \'{e} $\Delta p = 7 - 3(2) = 1$.
+  \item \textbf{$T_\ell$ (Expansão sobre triângulo):} Adicionam-se $2$ novos vértices e $7$ novas arestas que, 
+    apoiadas em um triângulo preexistente, completam um novo $K_5$. 
+    Aqui, o incremento na penalidade é $\Delta p = 7 - 3(2) = 1$.
 
-  \item \textbf{$Q_\ell$ (Expans\~{a}o sobre $K_4$):} Adiciona-se apenas $1$ novo v\'{e}rtice ligado a um $K_4$ 
-    existente atrav\'{e}s de $4$ novas arestas, completando um $K_5$. 
-    O incremento \'{e} $\Delta p = 4 - 3(1) = 1$.
+  \item \textbf{$Q_\ell$ (Expansão sobre $K_4$):} Adiciona-se apenas $1$ novo vértice ligado a um $K_4$ 
+    existente através de $4$ novas arestas, completando um $K_5$. 
+    O incremento é $\Delta p = 4 - 3(1) = 1$.
 
-  \item \textbf{$U_\ell$ (Uni\~{a}o sobre $K_5^-$):} N\~{a}o se adicionam v\'{e}rtices; apenas $1$ nova aresta \'{e} 
-    inserida conectando dois v\'{e}rtices de um $K_5$ quase completo ($K_5 \setminus \{e\}$) j\'{a} 
+  \item \textbf{$U_\ell$ (União sobre $K_5^-$):} Não se adicionam vértices; apenas $1$ nova aresta é 
+    inserida conectando dois vértices de um $K_5$ quase completo ($K_5 \setminus \{e\}$) já 
     presente na estrutura. 
-    A varia\c{c}\~{a}o \'{e} $\Delta p = 1 - 3(0) = 1$.
+    A variação é $\Delta p = 1 - 3(0) = 1$.
 \end{itemize}
 
-Uma observa\c{c}\~{a}o fundamental \'{e} que a expans\~{a}o \textbf{$R_\ell$} (a \'{u}nica que \'{e} considerada "regular") 
-preserva o valor de $p(G)$. Por outro lado, as expans\~{o}es degeneradas (\textbf{$T_\ell$}, \textbf{$Q_\ell$} e \textbf{$U_\ell$}) 
-aumentam a penalidade estritamente em $1$. Como iniciamos com $p(H_0) = 0$ e sabemos que $p(B) \le 5$, conclu\'{i}mos 
-que o n\'{u}mero total de ocorr\^{e}ncias dos casos $T_\ell$, $Q_\ell$ e $U_\ell$ na constru\c{c}\~{a}o do bloco \'{e} uniformemente 
-limitado (ocorrem no m\'{a}ximo $5$ vezes em todo o processo).
+Uma observação fundamental é que a expansão \textbf{$R_\ell$} (a única que é considerada "regular") 
+preserva o valor de $p(G)$. Por outro lado, as expansões degeneradas (\textbf{$T_\ell$}, \textbf{$Q_\ell$} e \textbf{$U_\ell$}) 
+aumentam a penalidade estritamente em $1$. Como iniciamos com $p(H_0) = 0$ e sabemos que $p(B) \le 5$, concluímos 
+que o número total de ocorrências dos casos $T_\ell$, $Q_\ell$ e $U_\ell$ na construção do bloco é uniformemente 
+limitado (ocorrem no máximo $5$ vezes em todo o processo).
 
 \medskip
-\noindent\textit{Extens\~{a}o da colora\c{c}\~{a}o auxiliar para cada tipo de expans\~{a}o.}
+\noindent\textit{Extensão da coloração auxiliar para cada tipo de expansão.}
 \medskip
 
-\noindent\textbf{Caso $R_\ell$ (expans\~{a}o regular).}
-Em $R_\ell$, uma nova c\'{o}pia de $K_5$ \'{e} colada \`{a} estrutura existente por uma aresta $e$ j\'{a} colorida.
-Identificamos os dois $C_5$ na nova c\'{o}pia de modo que $e$ perten\c{c}a ao $C_5$ da sua cor.
-A colorac\~{a}o \'{e} compat\'{i}vel com o bloco anterior.
-No diagrama abaixo, dois $K_5$ s\~{a}o colados pela aresta $1$--$2$ (vermelha):
+\noindent\textbf{Caso $R_\ell$ (expansão regular).}
+Em $R_\ell$, uma nova cópia de $K_5$ é colada à estrutura existente por uma aresta $e$ já colorida.
+Identificamos os dois $C_5$ na nova cópia de modo que $e$ pertença ao $C_5$ da sua cor.
+A coloracão é compatível com o bloco anterior.
+No diagrama abaixo, dois $K_5$ são colados pela aresta $1$--$2$ (vermelha):
 
 \medskip
 \begin{center}
@@ -716,11 +716,11 @@ No diagrama abaixo, dois $K_5$ s\~{a}o colados pela aresta $1$--$2$ (vermelha):
 \end{center}
 
 \medskip
-\noindent\textbf{Caso $T_\ell$ (expans\~{a}o sobre tri\^{a}ngulo).}
-Em $T_\ell$, dois novos v\'{e}rtices $u, v$ com a aresta $uv$ s\~{a}o ligados a um tri\^{a}ngulo $\{a,b,c\}$ existente.
-Identificamos um $P_2$ monocrom\'{a}tico no tri\^{a}ngulo (sempre existe por paridade) e extendemos
+\noindent\textbf{Caso $T_\ell$ (expansão sobre triângulo).}
+Em $T_\ell$, dois novos vértices $u, v$ com a aresta $uv$ são ligados a um triângulo $\{a,b,c\}$ existente.
+Identificamos um $P_2$ monocromático no triângulo (sempre existe por paridade) e extendemos
 ao $C_5$ da sua cor; as cinco arestas restantes formam o $C_5$ da outra cor.
-Se o $P_2$ vermelho \'{e} $a$--$b$--$c$, ent\~{a}o: $C_5$ vermelho $= a\text{-}b\text{-}c\text{-}y\text{-}x\text{-}a$;
+Se o $P_2$ vermelho é $a$--$b$--$c$, então: $C_5$ vermelho $= a\text{-}b\text{-}c\text{-}y\text{-}x\text{-}a$;
 $C_5$ azul $= a\text{-}c\text{-}x\text{-}b\text{-}y\text{-}a$.
 
 \medskip
@@ -775,9 +775,9 @@ $C_5$ azul $= a\text{-}c\text{-}x\text{-}b\text{-}y\text{-}a$.
 \end{tikzpicture}
 \end{center}
 \medskip
-\noindent\textbf{Caso $Q_\ell$ (expans\~{a}o sobre $K_4$).}
-Em $Q_\ell$, um novo v\'{e}rtice $v$ \'{e} ligado a todos os v\'{e}rtices de um $K_4$ existente $\{a,b,c,d\}$.
-O $K_4$ possui dois $P_3$ monocrom\'{a}ticos; tomamos o $P_3$ vermelho $a$--$b$--$c$--$d$ e extendemos:
+\noindent\textbf{Caso $Q_\ell$ (expansão sobre $K_4$).}
+Em $Q_\ell$, um novo vértice $v$ é ligado a todos os vértices de um $K_4$ existente $\{a,b,c,d\}$.
+O $K_4$ possui dois $P_3$ monocromáticos; tomamos o $P_3$ vermelho $a$--$b$--$c$--$d$ e extendemos:
 $C_5$ vermelho $= a\text{-}b\text{-}c\text{-}d\text{-}v\text{-}a$;
 $C_5$ azul $= a\text{-}c\text{-}v\text{-}b\text{-}d\text{-}a$.
 
@@ -830,75 +830,75 @@ $C_5$ azul $= a\text{-}c\text{-}v\text{-}b\text{-}d\text{-}a$.
 % ESTRUTURA DA PROVA: enunciados e deduções
 % ------------------------------------------------------------------
 
-\begin{proposition}[Equil\'{i}brio de cores]
+\begin{proposition}[Equilíbrio de cores]
 \label{prop:equilibrio}
-Seja $B$ um $K_5$-bloco com $\maxdens(B) \le 3$ e $\chi'$ a colora\c{c}\~{a}o auxiliar constru\'{i}da
-indutivamente sobre as expans\~{o}es de $B$. Ent\~{a}o \'{e} poss\'{i}vel definir $\chi'$ de modo que,
-para toda c\'{o}pia $H \cong K_5$ em $B$ e todo v\'{e}rtice $w \in V(H)$, $w$ possui ao menos
+Seja $B$ um $K_5$-bloco com $\maxdens(B) \le 3$ e $\chi'$ a coloração auxiliar construída
+indutivamente sobre as expansões de $B$. Então é possível definir $\chi'$ de modo que,
+para toda cópia $H \cong K_5$ em $B$ e todo vértice $w \in V(H)$, $w$ possui ao menos
 um vizinho com $\chi'(e) = \text{claro}$ e ao menos um vizinho com $\chi'(e) = \text{escuro}$
 dentro de $H$.
 \end{proposition}
 
 \noindent
-Para provar a Proposi\c{c}\~{a}o~\ref{prop:equilibrio}, estabelecemos duas afirma\c{c}\~{o}es auxiliares.
+Para provar a Proposição~\ref{prop:equilibrio}, estabelecemos duas afirmações auxiliares.
 
-\begin{afirmacao}[Expans\~{o}es de v\'{e}rtice preservam o equil\'{i}brio]
+\begin{afirmacao}[Expansões de vértice preservam o equilíbrio]
 \label{afirm:vertex-exp}
-A propriedade da Proposi\c{c}\~{a}o~\ref{prop:equilibrio} \'{e} preservada em cada passo dos tipos
+A propriedade da Proposição~\ref{prop:equilibrio} é preservada em cada passo dos tipos
 $R_\ell$, $T_\ell$ e $Q_\ell$.
 \end{afirmacao}
 
-\begin{afirmacao}[Limita\c{c}\~{a}o de $U_\ell$]
+\begin{afirmacao}[Limitação de $U_\ell$]
 \label{afirm:ulimit}
-Na constru\c{c}\~{a}o de qualquer $K_5$-bloco $B$ com $\maxdens(B) \le 3$,
-o n\'{u}mero de expans\~{o}es do tipo $U_\ell$ \'{e} no m\'{a}ximo $2$.
+Na construção de qualquer $K_5$-bloco $B$ com $\maxdens(B) \le 3$,
+o número de expansões do tipo $U_\ell$ é no máximo $2$.
 \end{afirmacao}
 
-\begin{proof}[Prova da Proposi\c{c}\~{a}o~\ref{prop:equilibrio}]
-Pela Afirma\c{c}\~{a}o~\ref{afirm:vertex-exp}, a propriedade de equil\'{i}brio \'{e} mantida a cada
-expans\~{a}o dos tipos $R_\ell$, $T_\ell$ e $Q_\ell$.
-Pela Afirma\c{c}\~{a}o~\ref{afirm:ulimit}, o n\'{u}mero de passos $U_\ell$ \'{e} limitado;
-e cada passo $U_\ell$ apenas adiciona uma aresta, sem alterar a propriedade j\'{a} garantida para
-os tr\^{e}s vizinhos existentes de cada extremidade (como detalhado na prova da Afirma\c{c}\~{a}o~\ref{afirm:ulimit}).
-Portanto, $\chi'$ pode ser constru\'{i}da de modo que a propriedade vale ap\'{o}s todos os passos.
+\begin{proof}[Prova da Proposição~\ref{prop:equilibrio}]
+Pela Afirmação~\ref{afirm:vertex-exp}, a propriedade de equilíbrio é mantida a cada
+expansão dos tipos $R_\ell$, $T_\ell$ e $Q_\ell$.
+Pela Afirmação~\ref{afirm:ulimit}, o número de passos $U_\ell$ é limitado;
+e cada passo $U_\ell$ apenas adiciona uma aresta, sem alterar a propriedade já garantida para
+os três vizinhos existentes de cada extremidade (como detalhado na prova da Afirmação~\ref{afirm:ulimit}).
+Portanto, $\chi'$ pode ser construída de modo que a propriedade vale após todos os passos.
 \end{proof}
 
-\begin{afirmacao}[$\chi''$ \'{e} uma colora\c{c}\~{a}o v\'{a}lida]
+\begin{afirmacao}[$\chi''$ é uma coloração válida]
 \label{afirm:chipp}
-Dadas $\chi$ e $\chi'$ como acima, a colora\c{c}\~{a}o
+Dadas $\chi$ e $\chi'$ como acima, a coloração
 \[
   \chi'': E(B) \;\longrightarrow\; \mathbb{N} \times \{\text{claro}, \text{escuro}\},
   \qquad \chi''(e) := \bigl(\chi(e),\, \chi'(e)\bigr),
 \]
-evita $K_3$ monocrom\'{a}tico, $K_4$ arco-\'{i}ris e $K_5$ lexicogr\'{a}fico.
-Em particular, $\chi''$ \'{e} uma $(K_3, K_4, K_5)$-colora\c{c}\~{a}o v\'{a}lida de $B$,
+evita $K_3$ monocromático, $K_4$ arco-íris e $K_5$ lexicográfico.
+Em particular, $\chi''$ é uma $(K_3, K_4, K_5)$-coloração válida de $B$,
 o que conclui a prova do Lema~\ref{lem:0-statement-K5}.
 \end{afirmacao}
 
 \begin{proof}
-Supondo que $\chi'$ satisfaz a Proposi\c{c}\~{a}o~\ref{prop:equilibrio}:
+Supondo que $\chi'$ satisfaz a Proposição~\ref{prop:equilibrio}:
 
 \begin{itemize}
-  \item \textbf{N\~{a}o existe $K_5$ lexicogr\'{a}fico sob $\chi''$.}
-  Sob $\chi$, toda c\'{o}pia de $K_5$ \'{e} lexicogr\'{a}fica: as quatro arestas $v_1v_j$
-  incidentes ao v\'{e}rtice m\'{i}nimo $v_1$ t\^{e}m todas $\chi(v_1v_j) = \varphi(v_1)$.
+  \item \textbf{Não existe $K_5$ lexicográfico sob $\chi''$.}
+  Sob $\chi$, toda cópia de $K_5$ é lexicográfica: as quatro arestas $v_1v_j$
+  incidentes ao vértice mínimo $v_1$ têm todas $\chi(v_1v_j) = \varphi(v_1)$.
   Para ser min-lex sob $\chi''$, todas essas arestas precisariam ter o mesmo $\chi'$.
-  Pela Proposi\c{c}\~{a}o~\ref{prop:equilibrio}, $v_1$ possui ao menos uma aresta clara e uma escura;
-  logo o $K_5$ n\~{a}o \'{e} lexicogr\'{a}fico sob $\chi''$.
+  Pela Proposição~\ref{prop:equilibrio}, $v_1$ possui ao menos uma aresta clara e uma escura;
+  logo o $K_5$ não é lexicográfico sob $\chi''$.
 
-  \item \textbf{N\~{a}o existe $K_4$ arco-\'{i}ris sob $\chi''$.}
-  O v\'{e}rtice m\'{i}nimo $w$ de um $K_4$ tem tr\^{e}s arestas $wu_i$ com $\chi(wu_i) = \varphi(w)$
-  (mesma primeira componente). Pela Proposi\c{c}\~{a}o~\ref{prop:equilibrio}, ao menos duas dessas
-  arestas coincidem em $\chi'$, logo em $\chi''$; o $K_4$ n\~{a}o \'{e} arco-\'{i}ris.
+  \item \textbf{Não existe $K_4$ arco-íris sob $\chi''$.}
+  O vértice mínimo $w$ de um $K_4$ tem três arestas $wu_i$ com $\chi(wu_i) = \varphi(w)$
+  (mesma primeira componente). Pela Proposição~\ref{prop:equilibrio}, ao menos duas dessas
+  arestas coincidem em $\chi'$, logo em $\chi''$; o $K_4$ não é arco-íris.
 
-  \item \textbf{N\~{a}o existe $K_3$ monocrom\'{a}tico sob $\chi''$.}
-  Em um tri\^{a}ngulo $x < y < z$, as arestas $xy$ e $yz$ t\^{e}m $\chi(xy) = \varphi(x) \ne \varphi(y) = \chi(yz)$
-  (pois $\varphi$ \'{e} injetiva), logo $\chi''(xy) \ne \chi''(yz)$; o tri\^{a}ngulo n\~{a}o \'{e} monocrom\'{a}tico.
+  \item \textbf{Não existe $K_3$ monocromático sob $\chi''$.}
+  Em um triângulo $x < y < z$, as arestas $xy$ e $yz$ têm $\chi(xy) = \varphi(x) \ne \varphi(y) = \chi(yz)$
+  (pois $\varphi$ é injetiva), logo $\chi''(xy) \ne \chi''(yz)$; o triângulo não é monocromático.
 \end{itemize}
 \end{proof}
 
 \noindent
-A Afirma\c{c}\~{a}o~\ref{afirm:chipp} conclui a prova do Lema~\ref{lem:0-statement-K5}.
+A Afirmação~\ref{afirm:chipp} conclui a prova do Lema~\ref{lem:0-statement-K5}.
 
 \end{proof}
 
@@ -906,31 +906,31 @@ A Afirma\c{c}\~{a}o~\ref{afirm:chipp} conclui a prova do Lema~\ref{lem:0-stateme
 % PROVAS DAS AFIRMAÇÕES AUXILIARES
 % ------------------------------------------------------------------
 
-\begin{proof}[Prova da Afirma\c{c}\~{a}o~\ref{afirm:vertex-exp} (Expans\~{o}es de v\'{e}rtice)]
-Examinamos cada tipo de expans\~{a}o que adiciona v\'{e}rtices, mostrando que a colora\c{c}\~{a}o $\chi'$
-pode ser estendida preservando a propriedade de equil\'{i}brio.
+\begin{proof}[Prova da Afirmação~\ref{afirm:vertex-exp} (Expansões de vértice)]
+Examinamos cada tipo de expansão que adiciona vértices, mostrando que a coloração $\chi'$
+pode ser estendida preservando a propriedade de equilíbrio.
 
 \medskip\noindent\textbf{Caso $R_\ell$.}
-A nova c\'{o}pia de $K_5$ compartilha uma aresta $e$ j\'{a} colorida.
-Constru\'{i}mos os dois $C_5$ do novo $K_5$ de modo que $e$ perten\c{c}a ao $C_5$ da sua cor;
-cada v\'{e}rtice fica com grau $2$ em cada $C_5$, garantindo ambas as cores.
+A nova cópia de $K_5$ compartilha uma aresta $e$ já colorida.
+Construímos os dois $C_5$ do novo $K_5$ de modo que $e$ pertença ao $C_5$ da sua cor;
+cada vértice fica com grau $2$ em cada $C_5$, garantindo ambas as cores.
 
 \medskip\noindent\textbf{Caso $T_\ell$.}
-Um $P_2$ monocrom\'{a}tico $a$--$b$--$c$ (que sempre existe por paridade no tri\^{a}ngulo)
-\'{e} extendido ao $C_5$ vermelho $a$--$b$--$c$--$u$--$v$--$a$;
+Um $P_2$ monocromático $a$--$b$--$c$ (que sempre existe por paridade no triângulo)
+é extendido ao $C_5$ vermelho $a$--$b$--$c$--$u$--$v$--$a$;
 as cinco arestas restantes formam o $C_5$ azul.
-Todo v\'{e}rtice fica com grau $2$ em cada $C_5$.
+Todo vértice fica com grau $2$ em cada $C_5$.
 
 \medskip\noindent\textbf{Caso $Q_\ell$.}
-O $P_3$ vermelho $a$--$b$--$c$--$d$ no $K_4$ \'{e} extendido ao $C_5$ vermelho
+O $P_3$ vermelho $a$--$b$--$c$--$d$ no $K_4$ é extendido ao $C_5$ vermelho
 $a$--$b$--$c$--$d$--$v$--$a$; as cinco arestas restantes formam o $C_5$ azul.
 \end{proof}
 
-\begin{proof}[Prova da Afirma\c{c}\~{a}o~\ref{afirm:ulimit} (Limita\c{c}\~{a}o de $U_\ell$)]
-Cada passo $U_\ell$ adiciona $1$ aresta e $0$ v\'{e}rtices, aumentando a penalidade em
-$\Delta p = 1$. Como $p(H_0) = 0$ e $p(B) \le 5$, podem ocorrer no m\'{a}ximo $5$ passos
-degenerados no total ($T_\ell$ + $Q_\ell$ + $U_\ell$). Mostramos que, em qualquer sequ\^{e}ncia de
-constru\c{c}\~{a}o de $B$, os passos $U_\ell$ s\~{a}o no m\'{a}ximo $2$.
+\begin{proof}[Prova da Afirmação~\ref{afirm:ulimit} (Limitação de $U_\ell$)]
+Cada passo $U_\ell$ adiciona $1$ aresta e $0$ vértices, aumentando a penalidade em
+$\Delta p = 1$. Como $p(H_0) = 0$ e $p(B) \le 5$, podem ocorrer no máximo $5$ passos
+degenerados no total ($T_\ell$ + $Q_\ell$ + $U_\ell$). Mostramos que, em qualquer sequência de
+construção de $B$, os passos $U_\ell$ são no máximo $2$.
 
 \emph{[Prova detalhada a completar.]}
 \end{proof}
