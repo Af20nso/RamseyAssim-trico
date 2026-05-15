@@ -958,12 +958,132 @@ Todo vértice fica com grau $2$ em cada $C_5$, e o invariante é preservado.
 \end{proof}
 
 \begin{proof}[Prova da Afirmação~\ref{afirm:ulimit} (Limitação de $U_\ell$)]
-Cada passo $U_\ell$ adiciona $1$ aresta e $0$ vértices, aumentando a penalidade em
-$\Delta p = 1$. Como $p(H_0) = 0$ e $p(B) \le 5$, podem ocorrer no máximo $5$ passos
-degenerados no total ($T_\ell$ + $Q_\ell$ + $U_\ell$). Mostramos que, em qualquer sequência de
-construção de $B$, os passos $U_\ell$ são no máximo $2$.
+Dividimos a prova em dois casos, conforme o bloco $B$ contenha ou não uma cópia de $K_6$.
 
-\emph{[Prova detalhada a completar.]}
+\medskip
+\noindent\textit{Caso 2: O bloco $B$ contém uma cópia de $K_6$.}
+
+\medskip
+
+Fixamos $H_0 \cong K_6$ como grafo inicial da construção indutiva de $B$.
+Isso é sempre possível: como $B$ é um $K_5$-bloco e contém $K_6$, podemos iniciar a
+construção a partir desse $K_6$ e anexar os demais vértices e arestas de $B$ por
+expansões sucessivas, exatamente como nos algoritmos de
+\cite{nenadov2017algorithmic} e \cite{AntiComplete}.
+
+\medskip
+\noindent\textit{Penalidade inicial.}
+Calculamos diretamente:
+\[
+  p(K_6) \;=\; e(K_6) - 3\,v(K_6) + 5 \;=\; 15 - 3 \cdot 6 + 5 \;=\; 15 - 18 + 5 \;=\; 2.
+\]
+Como $p(B) \le 5$, o orçamento disponível para passos degenerados a partir de $H_0$
+é $5 - 2 = 3$.
+
+\medskip
+\noindent\textit{Coloração auxiliar de $K_6$.}
+Rotulamos os vértices de $K_6$ como $1, 2, 3, 4, 5, 6$ e definimos $\chi'$ por:
+\begin{itemize}
+  \item $C_6$ vermelho: $1\text{-}2\text{-}3\text{-}4\text{-}5\text{-}6\text{-}1$
+        (as $6$ arestas do ciclo externo);
+  \item $C_6$ azul: $1\text{-}3\text{-}5\text{-}1$ e $2\text{-}4\text{-}6\text{-}2$
+        reunidos, ou seja, as $6$ arestas $13, 35, 15, 24, 46, 26$
+        (o ciclo ``saltando de dois em dois'');
+  \item $M_3$ vermelho: o emparelhamento perfeito $\{14, 25, 36\}$.
+\end{itemize}
+Tem-se $6 + 6 + 3 = 15 = \binom{6}{2}$ arestas, cobrindo exatamente $E(K_6)$.
+
+\medskip
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2,
+  vm/.style={draw=red!70!black, very thick},
+  az/.style={draw=blue!70!black, very thick, dashed},
+  vert/.style={circle, fill=black, inner sep=1.8pt}]
+
+  \foreach \i/\ang in {1/90, 2/30, 3/330, 4/270, 5/210, 6/150}
+    \node[vert] (v\i) at (\ang:1.2cm) {};
+  \foreach \i/\ang in {1/90, 2/30, 3/330, 4/270, 5/210, 6/150}
+    \node at (\ang:1.55cm) {$\i$};
+
+  % C6 vermelho (ciclo externo)
+  \foreach \a/\b in {1/2, 2/3, 3/4, 4/5, 5/6, 6/1}
+    \draw[vm] (v\a) -- (v\b);
+  % M3 vermelho (diâmetros)
+  \foreach \a/\b in {1/4, 2/5, 3/6}
+    \draw[vm] (v\a) -- (v\b);
+  % C6 azul (saltos de 2)
+  \foreach \a/\b in {1/3, 3/5, 5/1, 2/4, 4/6, 6/2}
+    \draw[az] (v\a) -- (v\b);
+\end{tikzpicture}
+\end{center}
+
+\medskip
+\noindent\textit{Verificação das propriedades invariantes.}
+
+A coloração acima satisfaz o invariante estabelecido na prova da
+Afirmação~\ref{afirm:vertex-exp}:
+
+\begin{itemize}
+  \item Todo vértice de $K_6$ tem grau $2$ no $C_6$ vermelho, grau $2$ no $C_6$ azul
+        e grau $1$ no $M_3$ vermelho, portanto grau total $3$ em arestas vermelhas e
+        grau $2$ em arestas azuis.
+
+  \item Qualquer cópia de $K_5$ em $K_6$ é obtida removendo um vértice $w$.
+        Dentro desse $K_5$, cada vértice perde exatamente $1$ vizinho (o próprio $w$),
+        mas mantém ao menos $1$ vizinho vermelho e $1$ vizinho azul, preservando o
+        equilíbrio da Proposição~\ref{prop:equilibrio}.
+
+  \item Todo triângulo de $K_6$ possui exatamente $2$ arestas vermelhas e $1$ azul,
+        ou $1$ vermelha e $2$ azuis (pode-se verificar por inspeção direta nos
+        $\binom{6}{3} = 20$ triângulos). Em particular, a distribuição $2$-$1$ vale,
+        garantindo a aplicabilidade da Afirmação~\ref{afirm:vertex-exp}.
+\end{itemize}
+
+\medskip
+\noindent\textit{Como podem surgir passos $U_\ell$ a partir de $K_6$.}
+
+Um passo $U_\ell$ requer a presença de um $K_5^-$ no grafo atual, isto é, cinco
+vértices faltando exatamente uma aresta para formar $K_5$.
+No entanto, dentro de $K_6$ puro, qualquer conjunto de $5$ vértices induz um $K_5$
+completo; logo \emph{não existe} $K_5^-$ dentro de $H_0 = K_6$.
+Portanto, um passo $U_\ell$ nunca pode ser o primeiro passo após $H_0$: é
+necessário realizar ao menos um passo $T_\ell$ ou $Q_\ell$ antes.
+
+Isso consome ao menos $1$ unidade do orçamento de $3$ antes do primeiro $U_\ell$.
+Analisamos as duas formas pelas quais um $K_5^-$ pode ser criado:
+
+\begin{itemize}
+  \item \textit{Via $Q_\ell$}: adicionamos um novo vértice $v$ conectado a um $K_4 =
+        \{a,b,c,d\} \subset K_6$, deixando $2$ arestas faltando ($ve_1$ e $ve_2$,
+        onde $e_1, e_2$ são os vértices de $K_6$ fora do $K_4$).
+        Surgem imediatamente dois $K_5^-$: $\{a,b,c,e_1,v\}$ faltando $e_1 v$, e
+        $\{a,b,c,e_2,v\}$ faltando $e_2 v$.
+        Podemos então realizar dois passos $U_\ell$ consecutivos ($\Delta p = 1$ cada),
+        atingindo $p = 2 + 1 + 1 + 1 = 5 \le 5$. Isso totaliza
+        \emph{no máximo $2$ passos $U_\ell$} nesse subcaso.
+
+  \item \textit{Via $T_\ell$}: adicionamos dois novos vértices $u, v$ ligados a um
+        triângulo $\{a,b,c\} \subset K_6$.
+        O vértice $u$ (e analogamente $v$) não é adjacente aos $3$ vértices restantes
+        $d, e, f$ de $K_6$, criando conjuntos $K_5^-$ como $\{a,b,c,d,u\}$ (faltando
+        $du$).
+        Realizando um passo $U_\ell$ que adiciona $du$, o conjunto $\{a,b,c,d,v\}$
+        ainda é um $K_5^-$ (faltando $dv$), admitindo um segundo $U_\ell$.
+        Após esses dois passos, $p = 2 + 1 + 1 + 1 = 5 \le 5$, e o orçamento está
+        esgotado.
+        Novamente, \emph{no máximo $2$ passos $U_\ell$} nesse subcaso.
+\end{itemize}
+
+Em ambos os subcasos, o total de passos $U_\ell$ quando $H_0 \cong K_6$ é
+\emph{no máximo $2$}, o que conclui o Caso~2.
+
+\medskip
+\noindent\textit{Caso 1: O bloco $B$ não contém nenhuma cópia de $K_6$.}
+
+\medskip
+
+\emph{[A completar.]}
 \end{proof}
 
 
