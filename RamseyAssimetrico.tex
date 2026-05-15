@@ -876,24 +876,29 @@ o que conclui a prova do Lema~\ref{lem:0-statement-K5}.
 \end{afirmacao}
 
 \begin{proof}
-Supondo que $\chi'$ satisfaz a Proposição~\ref{prop:equilibrio}:
+Assumimos que $\chi'$ satisfaz a Proposição~\ref{prop:equilibrio} e verificamos cada condição
+separadamente.
 
 \begin{itemize}
-  \item \textbf{Não existe $K_5$ lexicográfico sob $\chi''$.}
-  Sob $\chi$, toda cópia de $K_5$ é lexicográfica: as quatro arestas $v_1v_j$
-  incidentes ao vértice mínimo $v_1$ têm todas $\chi(v_1v_j) = \varphi(v_1)$.
-  Para ser min-lex sob $\chi''$, todas essas arestas precisariam ter o mesmo $\chi'$.
-  Pela Proposição~\ref{prop:equilibrio}, $v_1$ possui ao menos uma aresta clara e uma escura;
-  logo o $K_5$ não é lexicográfico sob $\chi''$.
+  \item Sob $\chi$, toda cópia de $K_5$ é lexicográfica: as quatro arestas $v_1v_j$
+  incidentes ao vértice mínimo $v_1$ recebem todas a mesma cor $\chi(v_1v_j) = \varphi(v_1)$.
+  Para que o $K_5$ seja também min-lex sob $\chi''$, seria necessário que todas essas
+  arestas tivessem o mesmo valor de $\chi'$. Isso é impossível pela
+  Proposição~\ref{prop:equilibrio}, que garante que $v_1$ possui ao menos uma aresta
+  clara e uma escura dentro de qualquer cópia de $K_5$. Portanto, não existe
+  $K_5$ lexicográfico sob $\chi''$.
 
-  \item \textbf{Não existe $K_4$ arco-íris sob $\chi''$.}
-  O vértice mínimo $w$ de um $K_4$ tem três arestas $wu_i$ com $\chi(wu_i) = \varphi(w)$
-  (mesma primeira componente). Pela Proposição~\ref{prop:equilibrio}, ao menos duas dessas
-  arestas coincidem em $\chi'$, logo em $\chi''$; o $K_4$ não é arco-íris.
+  \item Considere um $K_4$ com vértice mínimo $w$. As três arestas $wu_i$ incidentes
+  a $w$ recebem todas a mesma primeira componente $\chi(wu_i) = \varphi(w)$; para que
+  o $K_4$ fosse arco-íris sob $\chi''$, essas três arestas precisariam ser duas a duas
+  distintas na segunda componente $\chi'$. Como só há duas cores em $\chi'$, ao menos
+  duas delas coincidem em $\chi'$ e, portanto, em $\chi''$. Logo, não existe
+  $K_4$ arco-íris sob $\chi''$.
 
-  \item \textbf{Não existe $K_3$ monocromático sob $\chi''$.}
-  Em um triângulo $x < y < z$, as arestas $xy$ e $yz$ têm $\chi(xy) = \varphi(x) \ne \varphi(y) = \chi(yz)$
-  (pois $\varphi$ é injetiva), logo $\chi''(xy) \ne \chi''(yz)$; o triângulo não é monocromático.
+  \item Em qualquer triângulo $x < y < z$, as arestas $xy$ e $xz$ recebem $\chi(xy) =
+  \varphi(x)$, enquanto $yz$ recebe $\chi(yz) = \varphi(y) \ne \varphi(x)$ (pois $\varphi$
+  é injetiva). Assim, $\chi''(xy) \ne \chi''(yz)$, e o triângulo não pode ser
+  monocromático sob $\chi''$.
 \end{itemize}
 \end{proof}
 
