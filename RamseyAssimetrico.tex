@@ -966,10 +966,10 @@ Dividimos a prova em dois casos, conforme o bloco $B$ contenha ou não uma cópi
 \medskip
 
 Fixamos $H_0 \cong K_6$ como grafo inicial da construção indutiva de $B$.
-Isso é sempre possível: como $B$ é um $K_5$-bloco e contém $K_6$, podemos iniciar a
-construção a partir desse $K_6$ e anexar os demais vértices e arestas de $B$ por
-expansões sucessivas, exatamente como nos algoritmos de
-\cite{nenadov2017algorithmic} e \cite{AntiComplete}.
+Embora os algoritmos de \cite{nenadov2017algorithmic} e \cite{AntiComplete}
+iniciem convencionalmente com um $K_5$, é possível adaptar o processo para
+iniciar a partir da cópia de $K_6$ (uma vez que ela já existe no bloco) e anexar
+os demais vértices e arestas por expansões sucessivas.
 
 \medskip
 \noindent\textit{Penalidade inicial.}
@@ -1057,17 +1057,72 @@ Analisamos as duas formas pelas quais um $K_5^-$ pode ser criado:
   \item \textit{Via $Q_\ell$}: adicionamos um novo vértice $v$ conectado a um $K_4 =
         \{a,b,c,d\} \subset K_6$, deixando $2$ arestas faltando ($ve_1$ e $ve_2$,
         onde $e_1, e_2$ são os vértices de $K_6$ fora do $K_4$).
+
+        \begin{center}
+        \begin{tikzpicture}[scale=0.9,
+          vert/.style={circle, fill=black, inner sep=1.8pt}]
+          \draw[fill=black!5, rounded corners=15pt] (-1, -1) rectangle (3, 3);
+          \node at (1, 2.5) {$K_6$};
+          
+          \node[vert, label=left:$e_1$] (e1) at (0, 1.5) {};
+          \node[vert, label=left:$e_2$] (e2) at (0, 0.5) {};
+          \node[vert, label=right:$a$] (a) at (2, 2) {};
+          \node[vert, label=right:$b$] (b) at (2, 1.33) {};
+          \node[vert, label=right:$c$] (c) at (2, 0.66) {};
+          \node[vert, label=right:$d$] (d) at (2, 0) {};
+          
+          \node[vert, label=right:$v$] (v) at (4.5, 1) {};
+          
+          \draw[thick] (v) -- (a); \draw[thick] (v) -- (b);
+          \draw[thick] (v) -- (c); \draw[thick] (v) -- (d);
+          \draw[thick, dashed, red] (v) to[bend right=20] node[above, sloped] {\small $U_\ell$} (e1);
+          \draw[thick, dashed, red] (v) to[bend left=20] node[below, sloped] {\small $U_\ell$} (e2);
+        \end{tikzpicture}
+        \end{center}
+
         Surgem imediatamente dois $K_5^-$: $\{a,b,c,e_1,v\}$ faltando $e_1 v$, e
         $\{a,b,c,e_2,v\}$ faltando $e_2 v$.
         Podemos então realizar dois passos $U_\ell$ consecutivos ($\Delta p = 1$ cada),
         atingindo $p = 2 + 1 + 1 + 1 = 5 \le 5$. Isso totaliza
         \emph{no máximo $2$ passos $U_\ell$} nesse subcaso.
+        
+        \textbf{Observação:} Ao adicionar $v$ e preencher $ve_1$ e $ve_2$ com passos $U_\ell$,
+        construímos exatamente uma cópia de $K_7$. Como $p(K_7) = 21 - 3(7) + 5 = 5$, o orçamento
+        de densidade limite $\maxdens(G) \le 3$ é completamente esgotado, refletindo
+        o fato de que o bloco não pode conter um $K_8$ (que teria densidade $>3$).
 
-  \item \textit{Via $T_\ell$}: adicionamos dois novos vértices $u, v$ ligados a um
+  \item \textit{Via $T_\ell$}: adicionamos dois novos vértices $u, v$ (e a aresta $uv$) ligados a um
         triângulo $\{a,b,c\} \subset K_6$.
+
+        \begin{center}
+        \begin{tikzpicture}[scale=0.9,
+          vert/.style={circle, fill=black, inner sep=1.8pt}]
+          \draw[fill=black!5, rounded corners=15pt] (-1, -1) rectangle (3, 3);
+          \node at (1, 2.5) {$K_6$};
+          
+          \node[vert, label=left:$d$] (d) at (0, 1.5) {};
+          \node[vert, label=left:$e$] (e) at (0, 0.5) {};
+          \node[vert, label=left:$f$] (f) at (1, 0) {};
+          
+          \node[vert, label=right:$a$] (a) at (2, 2) {};
+          \node[vert, label=right:$b$] (b) at (2, 1) {};
+          \node[vert, label=right:$c$] (c) at (2, 0) {};
+          
+          \node[vert, label=right:$u$] (u) at (4.5, 1.5) {};
+          \node[vert, label=right:$v$] (v) at (4.5, 0.5) {};
+          
+          \draw[thick] (u) -- (v);
+          \foreach \x in {a,b,c} {
+              \draw[thick] (u) -- (\x);
+              \draw[thick] (v) -- (\x);
+          }
+          \draw[thick, dashed, red] (u) to[bend right=20] node[above, sloped] {\small $U_\ell$} (d);
+          \draw[thick, dashed, red] (v) to[bend left=20] node[below, sloped] {\small $U_\ell$} (e);
+        \end{tikzpicture}
+        \end{center}
+
         O vértice $u$ (e analogamente $v$) não é adjacente aos $3$ vértices restantes
-        $d, e, f$ de $K_6$, criando conjuntos $K_5^-$ como $\{a,b,c,d,u\}$ (faltando
-        $du$).
+        $d, e, f$ de $K_6$, criando conjuntos $K_5^-$ como $\{a,b,c,d,u\}$ (faltando $du$).
         Realizando um passo $U_\ell$ que adiciona $du$, o conjunto $\{a,b,c,d,v\}$
         ainda é um $K_5^-$ (faltando $dv$), admitindo um segundo $U_\ell$.
         Após esses dois passos, $p = 2 + 1 + 1 + 1 = 5 \le 5$, e o orçamento está
