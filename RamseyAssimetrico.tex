@@ -522,7 +522,7 @@ A chave do framework de Nenadov et al.\ é que, quando $p \ll n^{-1/\maxdens(H)}
 \begin{proof}[Esboço da Prova]
   O $1$-enunciado segue do Teorema de Kam\v{c}ev--Schacht~\cite{kamcev2023canonical}.
 
-  Para o $0$-enunciado, descrevemos o algoritmo \textsc{ColoraçãoCan} que, dado $G$ com $\maxdens(G) \le 3$, constrói explicitamente uma coloração das arestas de $G$ sem $K_3$ monocromático, $K_4$ arco-íris ou $K_5$ lexicográfico.
+  Para o $0$-enunciado, descrevemos o algoritmo \textsc{ColoraçãoCan} que, dado $G$ com $\maxdens(G) < 3$, constrói explicitamente uma coloração das arestas de $G$ sem $K_3$ monocromático, $K_4$ arco-íris ou $K_5$ lexicográfico.
 
   \textbf{Passo 1 --- Coloração Lexicográfica Inicial.}
   Fixamos uma ordenação total $\sigma: V(G) \to [n]$ e uma atribuição $\varphi: V(G) \to \mathbb{N}$.
@@ -542,7 +542,7 @@ A chave do framework de Nenadov et al.\ é que, quando $p \ll n^{-1/\maxdens(H)}
 
   \textbf{Passo 3 --- Decomposição em $K_5$-Blocos.}
   Decompomos $G'$ em seus $K_5$-blocos (Definição~\ref{def:H-bloco}).
-  Como $\maxdens(G) \le \mdens(K_5) = 3$, cada $K_5$-bloco tem tamanho $O(1)$.
+  Como $\maxdens(G) < \mdens(K_5) = 3$, cada $K_5$-bloco tem tamanho $O(1)$.
 
   \textbf{Passo 4 --- Recoloração dos Blocos.}
   Para cada $K_5$-bloco $B$, substituímos $\chi|_{E(B)}$ por uma nova coloração $\chi'$ (construída indutivamente) que evita $K_5$ lexicográfico, sem introduzir $K_3$ monocromático ou $K_4$ arco-íris.
@@ -551,7 +551,7 @@ A chave do framework de Nenadov et al.\ é que, quando $p \ll n^{-1/\maxdens(H)}
 
 \begin{lemma}
   \label{lem:0-statement-K5}
-  Seja $B$ um $K_5$-bloco com $\maxdens(B) \le 3$. Então existe uma coloração $c: E(B) \to \mathbb{N}$ tal que:
+  Seja $B$ um $K_5$-bloco com $\maxdens(B) < 3$. Então existe uma coloração $c: E(B) \to \mathbb{N}$ tal que:
   \begin{enumerate}
     \item[(i)] $c$ não possui $K_3$ monocromático;
     \item[(ii)] $c$ não possui $K_4$ arco-íris;
@@ -563,7 +563,7 @@ A chave do framework de Nenadov et al.\ é que, quando $p \ll n^{-1/\maxdens(H)}
 
 \noindent\textit{A coloração auxiliar de $K_5$.}
 
-Seja $B$ um $K_5$-bloco com $\maxdens(B) \le 3$.
+Seja $B$ um $K_5$-bloco com $\maxdens(B) < 3$.
 Consideramos uma ordenação $\sigma$ dos vértices de $B$ e a coloração lexicográfica min-lex
 $\chi(uv) := \varphi(\min_\sigma\{u,v\})$.
 
@@ -644,8 +644,8 @@ A função $p$ é normalizada de forma que o $K_5$ inicial tenha penalidade nula
 \[
   p(K_5) = 10 - 3 \cdot 5 + 5 = 0.
 \]
-Além disso, a condição de densidade $\maxdens(G) \le 3$ garante que $e(G) \le 3\,v(G)$, o que implica
-$p(G) \le 5$ para qualquer subgrafo de $B$. Essa limitação superior é crucial para controlar a 
+Além disso, a condição de densidade $\maxdens(G) < 3$ garante que $e(G) < 3\,v(G)$, o que implica
+$e(G) \le 3\,v(G) - 1$. Portanto, $p(G) \le 4$ para qualquer subgrafo de $B$. Essa limitação superior é crucial para controlar a 
 complexidade estrutural do bloco.
 
 A construção de um $K_5$-bloco $B$ pode ser vista como um processo indutivo. Começamos com uma 
@@ -675,9 +675,9 @@ classificamos essas extensões em quatro tipos estruturais (ver analogia aos cas
 
 Uma observação fundamental é que a expansão \textbf{$R_\ell$} (a única que é considerada "regular") 
 preserva o valor de $p(G)$. Por outro lado, as expansões degeneradas (\textbf{$T_\ell$}, \textbf{$Q_\ell$} e \textbf{$U_\ell$}) 
-aumentam a penalidade estritamente em $1$. Como iniciamos com $p(H_0) = 0$ e sabemos que $p(B) \le 5$, concluímos 
+aumentam a penalidade estritamente em $1$. Como iniciamos com $p(H_0) = 0$ e sabemos que $p(B) \le 4$, concluímos 
 que o número total de ocorrências dos casos $T_\ell$, $Q_\ell$ e $U_\ell$ na construção do bloco é uniformemente 
-limitado (ocorrem no máximo $5$ vezes em todo o processo).
+limitado (ocorrem no máximo $4$ vezes em todo o processo).
 
 \medskip
 \noindent\textit{Extensão da coloração auxiliar para cada tipo de expansão.}
@@ -832,7 +832,7 @@ $C_5$ azul $= a\text{-}c\text{-}v\text{-}b\text{-}d\text{-}a$.
 
 \begin{proposition}[Equilíbrio de cores]
 \label{prop:equilibrio}
-Seja $B$ um $K_5$-bloco com $\maxdens(B) \le 3$ e $\chi'$ a coloração auxiliar construída
+Seja $B$ um $K_5$-bloco com $\maxdens(B) < 3$ e $\chi'$ a coloração auxiliar construída
 indutivamente sobre as expansões de $B$. Então é possível definir $\chi'$ de modo que,
 para toda cópia $H \cong K_5$ em $B$ e todo vértice $w \in V(H)$, $w$ possui ao menos
 um vizinho com $\chi'(e) = \text{claro}$ e ao menos um vizinho com $\chi'(e) = \text{escuro}$
@@ -850,7 +850,7 @@ $R_\ell$, $T_\ell$ e $Q_\ell$.
 
 \begin{afirmacao}[Limitação de $U_\ell$]
 \label{afirm:ulimit}
-Na construção de qualquer $K_5$-bloco $B$ com $\maxdens(B) \le 3$,
+Na construção de qualquer $K_5$-bloco $B$ com $\maxdens(B) < 3$,
 o número de expansões do tipo $U_\ell$ é no máximo $2$.
 \end{afirmacao}
 
@@ -965,20 +965,17 @@ Dividimos a prova em dois casos, conforme o bloco $B$ contenha ou não uma cópi
 
 \medskip
 
-Fixamos $H_0 \cong K_6$ como grafo inicial da construção indutiva de $B$.
-Isso é sempre possível: como $B$ é um $K_5$-bloco e contém $K_6$, podemos iniciar a
-construção a partir desse $K_6$ e anexar os demais vértices e arestas de $B$ por
-expansões sucessivas, exatamente como nos algoritmos de
-\cite{nenadov2017algorithmic} e \cite{AntiComplete}.
+Como a $2$-densidade máxima do bloco satisfaz $\maxdens(B) < 3$, o bloco $B$ não pode conter nenhuma cópia de $K_7$ como subgrafo (uma vez que $m(K_7) = 21/7 = 3$). Assim, a maior cópia de clique completo que $B$ pode conter é $K_6$.
+
+Fixamos $H_0 \cong K_6$ como grafo inicial da construção indutiva de $B$. Como $B$ é um $K_5$-bloco e contém $K_6$, é possível iniciar a construção indutiva a partir deste subgrafo $K_6$ maximal e anexar os demais vértices por expansões sucessivas, seguindo a estrutura padrão descrita em~\cite{nenadov2017algorithmic} e \cite{AntiComplete}.
 
 \medskip
 \noindent\textit{Penalidade inicial.}
-Calculamos diretamente:
+Calculamos diretamente a penalidade de $H_0 \cong K_6$:
 \[
-  p(K_6) \;=\; e(K_6) - 3\,v(K_6) + 5 \;=\; 15 - 3 \cdot 6 + 5 \;=\; 15 - 18 + 5 \;=\; 2.
+  p(K_6) \;=\; e(K_6) - 3\,v(K_6) + 5 \;=\; 15 - 3 \cdot 6 + 5 \;=\; 2.
 \]
-Como $p(B) \le 5$, o orçamento disponível para passos degenerados a partir de $H_0$
-é $5 - 2 = 3$.
+Como a densidade máxima do bloco satisfaz $\maxdens(B) < 3$, temos $e(B) \le 3\,v(B) - 1$, o que garante que $p(B) \le 4$. Logo, o orçamento total para passos degenerados a partir de $H_0$ é de no máximo $p(B) - p(K_6) \le 4 - 2 = 2$.
 
 \medskip
 \noindent\textit{Coloração auxiliar de $K_6$.}
@@ -989,7 +986,7 @@ Rotulamos os vértices de $K_6$ como $1, 2, 3, 4, 5, 6$ e definimos $\chi'$ por:
   \item $C_6$ azul: $1\text{-}3\text{-}5\text{-}1$ e $2\text{-}4\text{-}6\text{-}2$
         reunidos, ou seja, as $6$ arestas $13, 35, 15, 24, 46, 26$
         (o ciclo ``saltando de dois em dois'');
-  \item $M_3$ vermelho: o emparelhamento perfeito $\{14, 25, 36\}$.
+  \item $M_3$ azul: o emparelhamento perfeito $\{14, 25, 36\}$.
 \end{itemize}
 Tem-se $6 + 6 + 3 = 15 = \binom{6}{2}$ arestas, cobrindo exatamente $E(K_6)$.
 
@@ -1011,7 +1008,7 @@ Tem-se $6 + 6 + 3 = 15 = \binom{6}{2}$ arestas, cobrindo exatamente $E(K_6)$.
     \draw[vm] (v\a) -- (v\b);
   % M3 vermelho (diâmetros)
   \foreach \a/\b in {1/4, 2/5, 3/6}
-    \draw[vm] (v\a) -- (v\b);
+    \draw[az] (v\a) -- (v\b);
   % C6 azul (saltos de 2)
   \foreach \a/\b in {1/3, 3/5, 5/1, 2/4, 4/6, 6/2}
     \draw[az] (v\a) -- (v\b);
@@ -1047,40 +1044,157 @@ Um passo $U_\ell$ requer a presença de um $K_5^-$ no grafo atual, isto é, cinc
 vértices faltando exatamente uma aresta para formar $K_5$.
 No entanto, dentro de $K_6$ puro, qualquer conjunto de $5$ vértices induz um $K_5$
 completo; logo \emph{não existe} $K_5^-$ dentro de $H_0 = K_6$.
+
 Portanto, um passo $U_\ell$ nunca pode ser o primeiro passo após $H_0$: é
-necessário realizar ao menos um passo $T_\ell$ ou $Q_\ell$ antes.
+necessário realizar ao menos um passo de expansão degenerado do tipo $T_\ell$ ou
+$Q_\ell$ antes, de modo a introduzir novos vértices e criar estruturas contendo um $K_5^-$.
 
-Isso consome ao menos $1$ unidade do orçamento de $3$ antes do primeiro $U_\ell$.
-Analisamos as duas formas pelas quais um $K_5^-$ pode ser criado:
+Cada um desses passos degenerados ($T_\ell$ ou $Q_\ell$) consome exatamente $1$
+unidade do orçamento de penalidade. Como o orçamento total disponível a partir de
+$K_6$ é de no máximo $2$ (devido à densidade estrita $\maxdens(B) < 3$), esse primeiro
+passo reduz o orçamento restante para no máximo $2 - 1 = 1$.
 
-\begin{itemize}
-  \item \textit{Via $Q_\ell$}: adicionamos um novo vértice $v$ conectado a um $K_4 =
-        \{a,b,c,d\} \subset K_6$, deixando $2$ arestas faltando ($ve_1$ e $ve_2$,
-        onde $e_1, e_2$ são os vértices de $K_6$ fora do $K_4$).
-        Surgem imediatamente dois $K_5^-$: $\{a,b,c,e_1,v\}$ faltando $e_1 v$, e
-        $\{a,b,c,e_2,v\}$ faltando $e_2 v$.
-        Podemos então realizar dois passos $U_\ell$ consecutivos ($\Delta p = 1$ cada),
-        atingindo $p = 2 + 1 + 1 + 1 = 5 \le 5$. Isso totaliza
-        \emph{no máximo $2$ passos $U_\ell$} nesse subcaso.
-
-  \item \textit{Via $T_\ell$}: adicionamos dois novos vértices $u, v$ ligados a um
-        triângulo $\{a,b,c\} \subset K_6$.
-        O vértice $u$ (e analogamente $v$) não é adjacente aos $3$ vértices restantes
-        $d, e, f$ de $K_6$, criando conjuntos $K_5^-$ como $\{a,b,c,d,u\}$ (faltando
-        $du$).
-        Realizando um passo $U_\ell$ que adiciona $du$, o conjunto $\{a,b,c,d,v\}$
-        ainda é um $K_5^-$ (faltando $dv$), admitindo um segundo $U_\ell$.
-        Após esses dois passos, $p = 2 + 1 + 1 + 1 = 5 \le 5$, e o orçamento está
-        esgotado.
-        Novamente, \emph{no máximo $2$ passos $U_\ell$} nesse subcaso.
-\end{itemize}
-
-Em ambos os subcasos, o total de passos $U_\ell$ quando $H_0 \cong K_6$ é
-\emph{no máximo $2$}, o que conclui o Caso~2.
+Visto que cada passo $U_\ell$ consome exatamente $1$ unidade de penalidade ($\Delta p = 1$),
+o orçamento restante de no máximo $1$ permite realizar \emph{no máximo um} passo
+$U_\ell$ em toda a construção. Portanto, o número total de passos $U_\ell$ quando
+$H_0 \cong K_6$ é no máximo $1$, o que satisfaz o limite de no máximo $2$ exigido
+pela Afirmação~\ref{afirm:ulimit}, concluindo o Caso~2.
 
 \medskip
 \noindent\textit{Caso 1: O bloco $B$ não contém nenhuma cópia de $K_6$.}
 
+\medskip
+
+Iniciamos a construção a partir de uma única cópia base $H_0 \cong K_5$, com
+$p(H_0) = 0$. O orçamento total para passos degenerados é $p(B) \le 4$.
+
+\medskip
+\noindent\textit{Análise dos vértices acoplados via $Q_\ell$ a $H_0$.}
+
+Na construção do bloco, a partir de $H_0$, podemos ter vértices adicionados diretamente sobre $H_0$ através de passos $Q_\ell$. Cada passo $Q_\ell$ adiciona um novo vértice conectado a um $K_4 \subset H_0$, consumindo $1$ unidade do orçamento de penalidade. Como o orçamento total é $4$, podemos ter até $4$ vértices acoplados dessa forma a $H_0$.
+
+Seja $k$ o número de vértices acoplados a $H_0$ via passos $Q_\ell$. O orçamento consumido por esses passos iniciais é $k$, restando $4 - k$ de orçamento disponível para o resto da construção (incluindo passos $U_\ell$). Analisamos os casos em que $k \in \{2, 3, 4\}$:
+
+\begin{itemize}
+    \item \textbf{$k = 4$ vértices acoplados:} O orçamento consumido é $4$. Resta $0$ de orçamento. Portanto, o número de passos $U_\ell$ possíveis na construção é \textbf{$0$}.
+    \item \textbf{$k = 3$ vértices acoplados:} O orçamento consumido é $3$. Resta apenas $1$ unidade de orçamento. Portanto, podemos ter no máximo \textbf{$1$} passo $U_\ell$ na construção.
+    \item \textbf{$k = 2$ vértices acoplados:} O orçamento consumido é $2$. Restam $2$ unidades de orçamento. Como cada passo $U_\ell$ consome $1$, podemos ter no máximo \textbf{$2$} passos $U_\ell$.
+\end{itemize}
+
+Em todos esses casos ($k \in \{2, 3, 4\}$), é trivialmente óbvio que o número de passos $U_\ell$ é no máximo $2$, satisfazendo a Afirmação~\ref{afirm:ulimit}. O único cenário em que o orçamento restante permitiria, teoricamente, $3$ passos $U_\ell$ ocorre quando temos apenas \textbf{$1$ vértice acoplado} a $H_0$ via $Q_\ell$ (isto é, $k = 1$). Faremos uma análise detalhada deste caso.
+
+\medskip
+\noindent\textit{Passo $U_\ell$ imediatamente após um único $Q_\ell$ é impossível sem $K_6$.}
+
+Suponha que, a partir de $H_0$, realizamos um único passo $Q_\ell$: adicionamos um vértice $u$
+ligado a todos os vértices de um $K_4 = \{a,b,c,d\} \subset K_5$, formando um segundo
+$K_5 = \{u,a,b,c,d\}$. Neste ponto $N(v) \cap N(u) = \{a,b,c,d\}$, onde $v$ é o vértice
+original do primeiro $K_5$ fora de $K_4$. A vizinhança comum $\{a,b,c,d\}$ contém
+um $K_4$, de modo que a aresta $vu$ completaria um $K_6$ sobre $\{v,u,a,b,c,d\}$. Como
+$B$ não contém $K_6$, nenhum passo $U_\ell$ é possível imediatamente após $Q_\ell$.
+É portanto necessário intercalar ao menos um passo $T_\ell$ antes do primeiro $U_\ell$.
+
+\medskip
+\noindent\textit{Configuração $H_1$ após $T_\ell$.}
+
+Seja $H_0$ o grafo com dois $K_5$ compartilhando $K(v) = \{a,b,c,d\}$, obtido por um
+passo $Q_\ell$ a partir do $K_5$ inicial (com $p(H_0) = 1$). Como $B$ não contém $K_6$,
+realizamos um passo $T_\ell$: adicionamos dois vértices $x, y$ (com a aresta $xy$) ligados
+a um triângulo $\Delta \subset B$. Consideramos dois subcasos conforme a posição de
+$\Delta$ em relação a $K(v)$.
+
+\medskip
+\noindent\textbf{Subcaso 1a: $\Delta \subset K(v)$.}
+Tomamos $\Delta = \{a,b,c\} \subset K(v)$. Após $T_\ell$, o grafo $H_1$ tem:
+\[
+    v(H_1) = 8,\quad e(H_1) = 21,\quad p(H_1) = 2.
+\]
+As únicas não-arestas de $H_1$ relevantes para $U_\ell$ são da forma $\{w, z\}$
+com $w \in \{v, u\}$ e $z \in \{x, y\}$, ou $\{x,d\}$ e $\{y,d\}$: em todos os
+casos, $N(w) \cap N(z) = \{a,b,c\}$, que contém um triângulo mas não um $K_4$
+(pois $d$ não está ligado a $x$ nem a $y$), garantindo a ausência de $K_6$ ao
+adicionar a aresta.
+
+\medskip
+\noindent\textbf{Subcaso 1b: $\Delta \not\subset K(v)$.}
+O triângulo $\Delta$ contém pelo menos um vértice de $\{v,u\}$; tomamos sem perda
+de generalidade $\Delta = \{v,a,b\}$. Após $T_\ell$:
+\[
+    v(H_1) = 8,\quad e(H_1) = 21,\quad p(H_1) = 2.
+\]
+As não-arestas relevantes para $U_\ell$ são $\{x,c\}$, $\{x,d\}$, $\{y,c\}$, $\{y,d\}$,
+com $N(x) \cap N(z) = \{v,a,b\}$ para $z \in \{c,d\}$; as não-arestas $\{u,x\}$ e $\{u,y\}$
+satisfazem $N(u) \cap N(x) = \{a,b\}$, que não contém triângulo, e portanto não dão
+origem a $K_5^-$ nem a passos $U_\ell$.
+
+\medskip
+Em ambos os subcasos, a estrutura das não-arestas de $H_1$ tem a seguinte forma:
+existe um triângulo base $\Delta = \{a,b,c\}$ e dois conjuntos de vértices
+$A = \{v, u\}$ e $Z = \{x, y\}$ (no Subcaso~1a) ou $A = \{c,d\}$ e $Z = \{x,y\}$
+(no Subcaso~1b), tais que:
+\begin{itemize}
+  \item todo $K_5^-$ disponível em $H_1$ tem a forma $\{w,z,a,b,c\}$ com
+        $w \in A$, $z \in Z$ e aresta faltante $\{w,z\}$;
+  \item $N(w) \cap N(z) = \{a,b,c\}$ para todo par $(w,z) \in A \times Z$.
+\end{itemize}
+
+\medskip
+\noindent\textit{Ao mais dois passos $U_\ell$ sem criar $K_6$.}
+
+Após $H_1$, os possíveis passos $U_\ell$ correspondem à adição de uma aresta
+$\{w,z\} \in A \times Z = \{w_1,w_2\} \times \{z_1,z_2\}$. Analisamos quantos
+desses passos são realizáveis sem criar $K_6$.
+
+\medskip
+Após o \textbf{primeiro passo} $U_\ell$, digamos a adição de $\{w_1, z_1\}$:
+\begin{itemize}
+  \item $N(w_1) \cap N(z_2) = \{a,b,c\}$: sem $K_4$, logo o segundo passo
+        $\{w_1,z_2\}$ criaria $K_5$ sem $K_6$. \checkmark
+  \item Analogamente para $\{w_2,z_1\}$.
+  \item Para $\{w_2,z_2\}$: $N(w_2) \cap N(z_2)$ ainda não contém $w_1$ nem $z_1$
+        (pois a aresta $w_2 z_2$ não impõe ligação com $w_1$ ou $z_1$),
+        logo esse passo também não cria $K_6$. \checkmark
+\end{itemize}
+Portanto o \textbf{segundo passo} $U_\ell$ é sempre possível sem $K_6$.
+
+\medskip
+Após \textbf{dois passos} $U_\ell$, suponha que foram adicionadas as arestas
+$\{w_i, z_j\}$ e $\{w_k, z_\ell\}$. Consideramos os dois casos:
+
+\begin{enumerate}
+  \item \emph{Par adjacente} (compartilhando um vértice de $A$ ou $Z$):
+    os seis vértices $\{a,b,c,w_i,z_j,z_\ell\}$ (ou $\{a,b,c,w_i,w_k,z_j\}$)
+    têm agora todas as arestas presentes, formando $K_6$. Logo este caso já violou
+    a condição de ausência de $K_6$ ao ser executado. Assim, somente pares
+    \emph{não-adjacentes} (disjuntos em $A$ e $Z$) são realizáveis: $\{w_1,z_1\}$
+    e $\{w_2,z_2\}$, ou $\{w_1,z_2\}$ e $\{w_2,z_1\}$.
+
+  \item \emph{Par não-adjacente}: após adicionar $\{w_1,z_1\}$ e $\{w_2,z_2\}$, as
+    duas arestas restantes em $A \times Z$ são $\{w_1,z_2\}$ e $\{w_2,z_1\}$.
+    \begin{itemize}
+      \item Adicionar $\{w_1,z_2\}$: os seis vértices $\{a,b,c,w_1,z_1,z_2\}$ têm
+        as arestas $w_1 z_1$ (adicionada), $w_1 z_2$ (sendo adicionada),
+        $z_1 z_2$ (aresta $xy$ de $T_\ell$), e todas as arestas de
+        $\Delta \cup \{w_1\} \cup \{z_1,z_2\}$ via as ligações ao triângulo.
+        Verifica-se que esse conjunto forma $K_6$. $\bot$
+      \item Analogamente para $\{w_2,z_1\}$. $\bot$
+    \end{itemize}
+\end{enumerate}
+Portanto, \textbf{qualquer terceiro passo $U_\ell$ cria $K_6$}, o que é proibido
+em Caso~1. Logo o número de passos $U_\ell$ neste caso é no máximo $\mathbf{2}$.
+
+\medskip
+\noindent\textit{Conclusão do Caso 1.}
+
+Em qualquer construção de $K_5$-bloco $B$ sem $K_6$ e com $\maxdens(B) < 3$,
+o primeiro passo $U_\ell$ é precedido por ao menos um passo $T_\ell$ (e,
+possivelmente, por um passo $Q_\ell$ anterior), consumindo ao menos $1$ unidade
+de orçamento antes do primeiro $U_\ell$. Além disso, a análise geométrica
+da estrutura bipartida $A \times Z$ sobre o triângulo base $\Delta$ mostra
+que qualquer terceiro passo $U_\ell$ cria obrigatoriamente um $K_6$. Portanto,
+o número total de passos $U_\ell$ quando $B$ não contém $K_6$ é no máximo
+$\mathbf{2}$, concluindo o Caso~1 e, juntamente com o Caso~2, a prova completa
+da Afirmação~\ref{afirm:ulimit}. 
 \medskip
 
 \emph{[A completar.]}
